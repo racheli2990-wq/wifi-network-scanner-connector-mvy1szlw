@@ -242,7 +242,7 @@ public class MainActivity extends Activity {
         // Set up the input
         final EditText input = new EditText(this);
         input.setLayoutDirection(View.LAYOUT_DIRECTION_RTL); // Ensure RTL for input
-        input.setHint(R.R.string.password_hint);
+        input.setHint(R.string.password_hint);
         input.setSingleLine(true);
         input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
         input.setBackgroundResource(R.drawable.rounded_input_bg); // Custom background
@@ -256,14 +256,14 @@ public class MainActivity extends Activity {
         builder.setView(layout);
 
         // Set up the buttons
-        builder.setPositiveButton(R.R.string.connect_button, new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(R.string.connect_button, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String password = input.getText().toString();
                 connectToWifi(scanResult, password);
             }
         });
-        builder.setNegativeButton(R.R.string.cancel_button, new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(R.string.cancel_button, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
