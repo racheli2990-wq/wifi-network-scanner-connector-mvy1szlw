@@ -242,7 +242,7 @@ public class MainActivity extends Activity {
         // Set up the input
         final EditText input = new EditText(this);
         input.setLayoutDirection(View.LAYOUT_DIRECTION_RTL); // Ensure RTL for input
-        input.setHint(R.string.password_hint);
+        input.setHint(R.R.string.password_hint);
         input.setSingleLine(true);
         input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
         input.setBackgroundResource(R.drawable.rounded_input_bg); // Custom background
@@ -256,14 +256,14 @@ public class MainActivity extends Activity {
         builder.setView(layout);
 
         // Set up the buttons
-        builder.setPositiveButton(R.string.connect_button, new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(R.R.string.connect_button, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String password = input.getText().toString();
                 connectToWifi(scanResult, password);
             }
         });
-        builder.setNegativeButton(R.string.cancel_button, new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(R.R.string.cancel_button, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
@@ -307,7 +307,7 @@ public class MainActivity extends Activity {
         String securityType = getSecurityType(scanResult.capabilities);
 
         if (securityType.equals(getString(R.string.open_network))) {
-            wifiConfig.allowedKeyManagement.set(WifiConfiguration.KEY_MGMT_NONE);
+            wifiConfig.allowedKeyManagement.set(0); // WifiConfiguration.KEY_MGMT_NONE
         } else if (securityType.equals("WEP")) {
             if (password.length() == 0) {
                 Toast.makeText(this, R.string.invalid_password, Toast.LENGTH_SHORT).show();
@@ -315,23 +315,23 @@ public class MainActivity extends Activity {
             }
             wifiConfig.wepKeys[0] = String.format("\"%s\"", password);
             wifiConfig.wepTxKeyIndex = 0;
-            wifiConfig.allowedKeyManagement.set(WifiConfiguration.KEY_MGMT_NONE);
-            wifiConfig.allowedGroupCiphers.set(WifiConfiguration.GROUP_CIPHER_WEP40);
-            wifiConfig.allowedGroupCiphers.set(WifiConfiguration.GROUP_CIPHER_WEP104);
-            wifiConfig.allowedAuthAlgorithms.set(WifiConfiguration.AUTH_ALGORITHM_OPEN);
-            wifiConfig.allowedAuthAlgorithms.set(WifiConfiguration.AUTH_ALGORITHM_SHARED);
+            wifiConfig.allowedKeyManagement.set(0); // WifiConfiguration.KEY_MGMT_NONE
+            wifiConfig.allowedGroupCiphers.set(0); // WifiConfiguration.GROUP_CIPHER_WEP40
+            wifiConfig.allowedGroupCiphers.set(1); // WifiConfiguration.GROUP_CIPHER_WEP104
+            wifiConfig.allowedAuthAlgorithms.set(0); // WifiConfiguration.AUTH_ALGORITHM_OPEN
+            wifiConfig.allowedAuthAlgorithms.set(1); // WifiConfiguration.AUTH_ALGORITHM_SHARED
         } else { // WPA/WPA2/WPA3 (Pre-Shared Key)
             if (password.length() < 8) { // WPA/WPA2/WPA3 minimum password length
                 Toast.makeText(this, R.string.invalid_password, Toast.LENGTH_SHORT).show();
                 return;
             }
             wifiConfig.preSharedKey = String.format("\"%s\"", password);
-            wifiConfig.allowedKeyManagement.set(WifiConfiguration.KEY_MGMT_WPA_PSK);
-            wifiConfig.allowedGroupCiphers.set(WifiConfiguration.GROUP_CIPHER_CCMP);
-            wifiConfig.allowedGroupCiphers.set(WifiConfiguration.GROUP_CIPHER_TKIP);
-            wifiConfig.allowedAuthAlgorithms.set(WifiConfiguration.AUTH_ALGORITHM_OPEN);
-            wifiConfig.allowedPairwiseCiphers.set(WifiConfiguration.PAIRWISE_CIPHER_CCMP);
-            wifiConfig.allowedPairwiseCiphers.set(WifiConfiguration.PAIRWISE_CIPHER_TKIP);
+            wifiConfig.allowedKeyManagement.set(1); // WifiConfiguration.KEY_MGMT_WPA_PSK
+            wifiConfig.allowedGroupCiphers.set(2); // WifiConfiguration.GROUP_CIPHER_CCMP
+            wifiConfig.allowedGroupCiphers.set(3); // WifiConfiguration.GROUP_CIPHER_TKIP
+            wifiConfig.allowedAuthAlgorithms.set(0); // WifiConfiguration.AUTH_ALGORITHM_OPEN
+            wifiConfig.allowedPairwiseCiphers.set(2); // WifiConfiguration.PAIRWISE_CIPHER_CCMP
+            wifiConfig.allowedPairwiseCiphers.set(1); // WifiConfiguration.PAIRWISE_CIPHER_TKIP
             wifiConfig.status = WifiConfiguration.Status.ENABLED;
         }
 
