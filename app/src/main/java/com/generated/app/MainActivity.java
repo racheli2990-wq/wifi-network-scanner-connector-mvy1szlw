@@ -241,7 +241,7 @@ public class MainActivity extends Activity {
 
         // Set up the input
         final EditText input = new EditText(this);
-        input.setLayoutDirection(View.LAYOUT_RTL); // Ensure RTL for input
+        input.setLayoutDirection(View.LAYOUT_DIRECTION_RTL); // Ensure RTL for input
         input.setHint(R.string.password_hint);
         input.setSingleLine(true);
         input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
@@ -307,7 +307,7 @@ public class MainActivity extends Activity {
         String securityType = getSecurityType(scanResult.capabilities);
 
         if (securityType.equals(getString(R.string.open_network))) {
-            wifiConfig.allowedKeyManagement.set(WifiConfiguration.KeyManagementScheme.NONE);
+            wifiConfig.allowedKeyManagement.set(WifiConfiguration.KeyManagement.NONE);
         } else if (securityType.equals("WEP")) {
             if (password.length() == 0) {
                 Toast.makeText(this, R.string.invalid_password, Toast.LENGTH_SHORT).show();
@@ -315,7 +315,7 @@ public class MainActivity extends Activity {
             }
             wifiConfig.wepKeys[0] = String.format("\"%s\"", password);
             wifiConfig.wepTxKeyIndex = 0;
-            wifiConfig.allowedKeyManagement.set(WifiConfiguration.KeyManagementScheme.NONE);
+            wifiConfig.allowedKeyManagement.set(WifiConfiguration.KeyManagement.NONE);
             wifiConfig.allowedGroupCiphers.set(WifiConfiguration.GroupCipher.WEP40);
             wifiConfig.allowedGroupCiphers.set(WifiConfiguration.GroupCipher.WEP104);
             wifiConfig.allowedAuthAlgorithms.set(WifiConfiguration.AuthAlgorithm.OPEN);
@@ -326,7 +326,7 @@ public class MainActivity extends Activity {
                 return;
             }
             wifiConfig.preSharedKey = String.format("\"%s\"", password);
-            wifiConfig.allowedKeyManagement.set(WifiConfiguration.KeyManagementScheme.WPA_PSK);
+            wifiConfig.allowedKeyManagement.set(WifiConfiguration.KeyManagement.WPA_PSK);
             wifiConfig.allowedGroupCiphers.set(WifiConfiguration.GroupCipher.CCMP);
             wifiConfig.allowedGroupCiphers.set(WifiConfiguration.GroupCipher.TKIP);
             wifiConfig.allowedAuthAlgorithms.set(WifiConfiguration.AuthAlgorithm.OPEN);
