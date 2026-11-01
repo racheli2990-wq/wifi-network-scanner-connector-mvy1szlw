@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">רשימת Wi-Fi</string>
+    <string name="scan_button">סרוק רשתות</string>
+    <string name="no_wifi_networks_found">לא נמצאו רשתות Wi-Fi. ודא ש-Wi-Fi מופעל.</string>
+    <string name="password_dialog_title">התחבר לרשת %s</string>
+    <string name="password_hint">הכנס סיסמה</string>
+    <string name="connect_button">התחבר</string>
+    <string name="cancel_button">בטל</string>
+    <string name="wifi_disabled_message">Wi-Fi כבוי. מפעיל כעת…</string>
+    <string name="wifi_enabled_message">Wi-Fi הופעל.</string>
+    <string name="wifi_enable_failed">הפעלת Wi-Fi נכשלה.</string>
+    <string name="permissions_required_toast">יש לאשר את ההרשאות לשימוש באפליקציה.</string>
+    <string name="connecting_to_network">מתחבר לרשת %s…</string>
+    <string name="connection_success">התחברת לרשת %s בהצלחה.</string>
+    <string name="connection_failed">התחברות לרשת %s נכשלה.</string>
+    <string name="invalid_password">סיסמה לא חוקית.</string>
+    <string name="no_wifi_support">המכשיר אינו תומך ב-Wi-Fi או שהפונקציונליות מושבתת.</string>
+    <string name="signal_strength">עוצמת אות: %d%%</string>
+    <string name="network_security">אבטחה: %s</string>
+    <string name="open_network">פתוחה</string>
+    <string name="unknown_security">לא ידוע</string>
+    <string name="wifi_scan_failed_retry">סריקת Wi-Fi נכשלה (נסה שוב בעוד כמה שניות)</string>
+</resources>

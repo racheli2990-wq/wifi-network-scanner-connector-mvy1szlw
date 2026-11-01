@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp"
+    android:height="96dp"
+    android:viewportWidth="96"
+    android:viewportHeight="96">
+
+    <!-- Rounded square background -->
+    <path
+        android:fillColor="#00796B"
+        android:pathData="M48,0 C21.5,0 0,21.5 0,48 C0,74.5 21.5,96 48,96 C74.5,96 96,74.5 96,48 C96,21.5 74.5,0 48,0 Z" />
+
+    <!-- Wi-Fi symbol -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M48,59 A3.5,3.5 0 1,1 48,52 A3.5,3.5 0 1,1 48,59 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M48,46.5 C52.9,46.5 57.5,47.9 61.5,50.5 L60.1,51.8 C56.4,49.5 52.3,48.2 48,48.2 C43.7,48.2 39.6,49.5 35.9,51.8 L34.5,50.5 C38.5,47.9 43.1,46.5 48,46.5 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M48,34 C55.3,34 62,36.2 67.5,40.1 L66.1,41.4 C61.2,37.9 54.8,35.8 48,35.8 C41.2,35.8 34.8,37.9 29.9,41.4 L28.5,40.1 C34,36.2 40.7,34 48,34 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M48,21.5 C57.7,21.5 66.8,24.6 74.5,30.3 L73.1,31.6 C66.1,26.4 57.4,23.3 48,23.3 C38.6,23.3 29.9,26.4 22.9,31.6 L21.5,30.3 C29.2,24.6 38.3,21.5 48,21.5 Z" />
+</vector>
